@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 2.8.12)
+project(eval)
+set(CMAKE_C_COMPILER "clang")
+set(CMAKE_CXX_COMPILER "clang++")
+set(CMAKE_CXX_FLAGS "-Wall -std=c++11 -g -O0 -DDEBUG")
+add_subdirectory(src)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
