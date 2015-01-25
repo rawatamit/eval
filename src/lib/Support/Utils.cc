@@ -14,19 +14,3 @@ std::string tokenTypeToString(TokenType type) {
     default: return "<<unknown>>";
     }
 }
-
-std::string binaryOperatorToString(BinaryOperator bop) {
-    switch (bop) {
-    case B_ADD: return "add";
-    case B_SUB: return "sub";
-    case B_MUL: return "mul";
-    case B_DIV: return "div";
-    case B_AND: return "and";
-    case B_OR:  return "or";
-    case B_XOR: return "xor";
-    case B_LSHIFT:  return "lshl";
-    case B_RSHIFT:  return "lshr";
-    case B_ARSHIFT: return "ashr";
-    default: return "<<unknown>>";
-    }
-}
