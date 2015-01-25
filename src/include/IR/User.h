@@ -4,7 +4,7 @@
 #include "IR/Value.h"
 
 class User : public Value {
-private:
+protected:
     User(Type* type, ValueTy vtype);
 
 public:

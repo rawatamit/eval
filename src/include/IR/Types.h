@@ -1,16 +1,18 @@
-#ifndef TYPE_H
-#define TYPE_H
+#ifndef TYPES_H
+#define TYPES_H
 
 #include "IR/Type.h"
 
 class IntegerType : public Type {
 private:
-    static IntegerType* itype_;
+    static IntegerType* i64type_;
     IntegerType();
+    IntegerType(IntegerType&) = delete;
 
 public:
     virtual ~IntegerType();
-    static IntegerType* get();
+    static IntegerType* get(unsigned bits);
+    unsigned getBitWidth() const;
 };
 
 #endif

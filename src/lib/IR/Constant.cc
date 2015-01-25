@@ -1,4 +1,8 @@
-#include "IR/Constant.h" 
+#include "IR/Constant.h"
 
-Constant(Type* type, ValueTy vtype) : User(type, vtype) {
+Constant::Constant(Type* type, ValueTy vtype) :
+    User(type, vtype) {
+}
+
+Constant::~Constant() {
 }
