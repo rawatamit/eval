@@ -1,4 +1,4 @@
-#include "Support/IRPrettyPrinter.h" 
+#include "Support/IRPrettyPrinter.h"
 #include "IR/Type.h"
 #include "IR/Value.h"
 #include "IR/Instruction.h"
@@ -26,7 +26,7 @@ void IRPrettyPrinter::printValue(Value const* v) {
     case Value::InstructionV:
         printInstruction(dynamic_cast<Instruction const*>(v));
         break;
-    
+
     default:
         out_ << "<unknown value>\n";
         break;
@@ -46,7 +46,7 @@ void IRPrettyPrinter::printInstruction(Instruction const* inst) {
         out_ << "    "
              << binst->getName() << " = "
              << binst->getOpcodeName() << ' '
-             //<< typeToString(binst->getType()) << ' '
+             << typeToString(binst->getType()) << ' '
              << binst->getLHS()->getName() << ", "
              << binst->getRHS()->getName() << '\n';
     }
