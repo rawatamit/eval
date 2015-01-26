@@ -1,14 +1,18 @@
 #include "IR/Constants.h"
 
-ConstantInt::ConstantInt(IntegerType *type, int val) :
-    Constant(type, Value::ConstantIntV), val_(val) {
+ConstantInt::ConstantInt(IntegerType *type, int val,
+                         std::string const& name) :
+    Constant(type, Value::ConstantIntV, name),
+    val_(val)
+{
 }
 
 ConstantInt::~ConstantInt() {
 }
 
-ConstantInt* ConstantInt::get(IntegerType *type, int val) {
-    return new ConstantInt(type, val);
+ConstantInt* ConstantInt::get(IntegerType *type, int val,
+                              std::string const& name) {
+    return new ConstantInt(type, val, name);
 }
 
 int ConstantInt::getValue() const {

@@ -1,9 +1,8 @@
 #ifndef VALUE_H
 #define VALUE_H
 
+#include "IR/Type.h"
 #include <string>
-
-class Type;
 
 class Value {
 public:
@@ -19,8 +18,7 @@ private:
     std::string name_;
 
 protected:
-    Value(Type* type, ValueTy vtype);
-    Value(Type* type, ValueTy vtype, std::string const& name);
+    Value(Type* type, ValueTy vtype, std::string const& name = "");
     Value(Value const&) = delete;
     void operator=(Value const&) = delete;
 

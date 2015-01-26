@@ -2,6 +2,8 @@
 #include "Parse/Parser.h"
 #include "IR/AST.h"
 #include "Support/PrintAST.h"
+#include "CodeGen/IRGen.h"
+#include "Support/IRPrettyPrinter.h"
 #include <iostream>
 
 void testLexer(Lexer& lex) {
@@ -17,14 +19,24 @@ void testLexer(Lexer& lex) {
 
 void testParser(Parser& parser) {
     AST* progast = parser.parse();
-    PrintAST pv(progast, std::cout);
-    pv.print();
+    if (progast != nullptr) {
+        PrintAST pv(progast, std::cout);
+        pv.print();
+    }
+}
+
+void testIRGen(Parser& parser) {
+    AST* progast = parser.parse();
+    if (progast != nullptr) {
+        IRGen igen(progast);
+        IRPrettyPrinter irpp(igen.getIR(), std::cout);
+        irpp.prettyPrint();
+    }
 }
 
 int main(int argc, char* argv[]) {
     Lexer lex(std::cin, "<stdin>");
-    //testLexer(lex);
     Parser parser(lex);
-    testParser(parser);
+    testIRGen(parser);
     return 0;
 }

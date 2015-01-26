@@ -1,5 +1,6 @@
 #include "IR/AST.h"
 #include "Support/ASTVisitor.h"
+#include "CodeGen/IRGen.h"
 
 /// AST
 AST::~AST() {
@@ -7,6 +8,10 @@ AST::~AST() {
 
 void AST::accept(ASTVisitor* v) {
     v->visit(this);
+}
+
+Value* AST::irgen(IRGen* v) {
+    return v->visit(this);
 }
 
 /// Expression
@@ -18,6 +23,10 @@ Expression::~Expression() {
 
 void Expression::accept(ASTVisitor* v) {
     v->visit(this);
+}
+
+Value* Expression::irgen(IRGen* v) {
+    return v->visit(this);
 }
 
 /// IntegerLiteral
@@ -34,6 +43,10 @@ Token* IntegerLiteral::getValue() const {
 
 void IntegerLiteral::accept(ASTVisitor* v) {
     v->visit(this);
+}
+
+Value* IntegerLiteral::irgen(IRGen* v) {
+    return v->visit(this);
 }
 
 /// BinaryExpression
@@ -75,6 +88,10 @@ void BinaryExpression::accept(ASTVisitor* v) {
     v->visit(this);
 }
 
+Value* BinaryExpression::irgen(IRGen* v) {
+    return v->visit(this);
+}
+
 /// AddExpression
 AddExpression::AddExpression(Token* op,
                              Expression* lhs,
@@ -87,6 +104,10 @@ AddExpression::~AddExpression() {
 
 void AddExpression::accept(ASTVisitor* v) {
     v->visit(this);
+}
+
+Value* AddExpression::irgen(IRGen* v) {
+    return v->visit(this);
 }
 
 /// SubExpression
@@ -103,6 +124,10 @@ void SubExpression::accept(ASTVisitor* v) {
     v->visit(this);
 }
 
+Value* SubExpression::irgen(IRGen* v) {
+    return v->visit(this);
+}
+
 /// MulExpression
 MulExpression::MulExpression(Token* op,
                              Expression* lhs,
@@ -117,6 +142,10 @@ void MulExpression::accept(ASTVisitor* v) {
     v->visit(this);
 }
 
+Value* MulExpression::irgen(IRGen* v) {
+    return v->visit(this);
+}
+
 /// DivExpression
 DivExpression::DivExpression(Token* op,
                              Expression* lhs,
@@ -129,4 +158,8 @@ DivExpression::~DivExpression() {
 
 void DivExpression::accept(ASTVisitor* v) {
     v->visit(this);
+}
+
+Value* DivExpression::irgen(IRGen* v) {
+    return v->visit(this);
 }

@@ -1,4 +1,26 @@
 #include "Support/Utils.h"
+#include <cstdio>
+
+std::string basicBlockLabel() {
+    static int tmp = 0;
+    static char buf[40];
+    sprintf(buf, "%s%d", "bb", tmp++);
+    return buf;
+}
+
+std::string globalVariableName() {
+    static int tmp = 0;
+    static char buf[40];
+    sprintf(buf, "%s%d", "gtmp", tmp++);
+    return buf;
+}
+
+std::string localVariableName() {
+    static int tmp = 0;
+    static char buf[40];
+    sprintf(buf, "%s%d", "ltmp", tmp++);
+    return buf;
+}
 
 std::string tokenTypeToString(TokenType type) {
     switch (type) {
