@@ -97,4 +97,12 @@ public:
     virtual Value* irgen(IRGen* v);
 };
 
+/// VariableDeclaration
+class VariableDeclaration : public AST {
+};
+
+/// Variable
+class Variable : public Expression {
+};
+
 #endif

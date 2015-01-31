@@ -3,8 +3,6 @@
 
 #include <string>
 
-typedef std::string Symbol;
-
 class Context {
 private:
     Context* enclosingContext_;
